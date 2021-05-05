@@ -1,0 +1,245 @@
+/*Estilos para el Header y Nav*/
+/*Nav*/
+nav{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     position: fixed;
+
+     background-color: #1C1C1C;
+     min-height: 8vh;
+     min-width: 100%;
+     padding: 0 2rem;
+     z-index: 10;
+
+     visibility: hidden;
+}
+nav > *{
+     margin: 0.3rem;
+}
+.fixed{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     visibility: visible;
+     top: 0;
+
+     min-height: 8vh;
+     padding: 0 2rem;
+}
+
+/*header*/
+header{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+     background-color: #1C1C1C;
+     min-height: 30vh;
+     min-width: 100%;
+
+     transition: 0.6s;
+}
+header > *{
+     margin: 1.5rem 0;
+}
+.header-img{
+     width: 30%;
+     height: 30%;
+}
+.buttons{
+     display: flex;
+     flex-direction: column;
+}
+button{
+     background-color: rgba(255, 255, 255, 0);
+     color: #fff;
+     font-size: 1.7rem;
+     padding: 0.7rem 2rem;
+     display: inline-block;
+     border: 0;
+     margin: 0 1rem 0 1rem;
+}
+button:hover{
+     text-decoration: underline;
+}
+
+/*Estilos para el header sticky*/
+.sticky{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+
+     min-height: 8vh;
+     padding: 0 2rem;
+}
+header.sticky > *{
+     margin: 0.3rem;
+}
+img.sticky{
+     width: 25%;
+     max-width: 18rem;
+}
+.sticky-img{
+     width: 25%;
+     max-width: 18rem;
+}
+.sticky-none-visible{
+     display: none;
+}
+.sticky-buttons{
+     flex-direction: row;
+}
+button.order-reverse{
+     order: -1;
+}
+
+
+/*Estilos container 1*/
+@media (min-width: 992px){
+     .introduction{
+          border: 1px solid rgba(190, 190, 190, 0.2);
+          -webkit-box-shadow: 1px 1px 8px 1px #ccc, -1px -1px 8px 1px #ccc;
+          -moz-box-shadow:    1px 1px 8px 1px #ccc, -1px -1px 8px 1px #ccc;
+          box-shadow:         1px 1px 8px 1px #ccc, -1px -1px 8px 1px #ccc;
+     }
+     .change-order{
+          order: -1;
+     }
+}
+.row-intro{
+     justify-content: center;
+}
+.row-intro p{
+     font-size: 2rem;
+}
+.img-intro{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+}
+.link{
+     font-size: 3rem;
+     text-decoration: none;
+     color: #0052cc;
+}
+.link:hover{
+     text-decoration: underline;
+     color: #003d99;
+}
+
+/*estilos video*/
+.video-container{
+     background-color: #1C1C1C;
+     height: 62vh;
+     max-height: 630px;
+     position: relative;
+     padding: 2rem 0;
+}
+.video{
+     position: absolute;
+     width: 700px;
+     height: 410px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 2rem;
+     left: 0;
+     right: 0;
+     text-align: center;
+}
+@media(max-width: 992px){
+     .video{
+          width: 500px;
+          height: 310px;
+     }
+     .video-container{
+          max-height: 530px;
+     }
+}
+@media(max-width: 768px){
+     .video{
+          width: 340px;
+          height: 190px;
+     }
+     .video-container{
+          max-height: 430px;
+     }
+}
+
+/*nueva liga*/
+.new-league{
+     border: 3px solid rgba(190, 190, 190, 0.3);
+     border-radius: 5px;
+     -webkit-box-shadow: -0.5px -0.5px 25px 0.3px #ccc;
+     -moz-box-shadow:    -0.5px -0.5px 25px 0.3px #ccc;
+     box-shadow:         -0.5px -0.5px 25px 0.3px #ccc;
+     margin-right: -8px;
+
+     padding: 10% 0;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+.league-button{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+}
+.part2{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+}
+hr{
+     border: 1px solid rgba(43, 43, 43, 1);
+     width: 45%;
+}
+.part2 p{
+     font-size: 2.3rem;
+     color:  rgba(43, 43, 43, 0.7);
+     margin: 0px 3px 0 3px;
+}
+@media(max-width: 576px){
+     .part2 > *{
+          margin: 4rem 0;
+     }
+}
+
+/*carousel*/
+.container-glider{
+     max-width: 85vw !important;
+}
+.glider{
+     overflow: hidden;
+}
+
+.carousel-element{
+     background-color: #F5F4F5;
+     margin: 0 15px;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;     
+}
+.carousel-element img{
+     max-height: 300px;
+}
+
+
+
+/*footer*/
+footer{
+     height: 10vh;
+     background-color: #1C1C1C;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
