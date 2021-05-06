@@ -211,6 +211,9 @@ hr{
           margin: 4rem 0;
      }
 }
+.img-league{
+     border-radius: 10px;
+}
 
 /*carousel*/
 .container-glider{
