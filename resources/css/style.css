@@ -104,6 +104,7 @@ button.order-reverse{
           -webkit-box-shadow: 1px 1px 8px 1px #ccc, -1px -1px 8px 1px #ccc;
           -moz-box-shadow:    1px 1px 8px 1px #ccc, -1px -1px 8px 1px #ccc;
           box-shadow:         1px 1px 8px 1px #ccc, -1px -1px 8px 1px #ccc;
+          border-radius: 7px;
      }
      .change-order{
           order: -1;
@@ -142,6 +143,7 @@ button.order-reverse{
      position: absolute;
      width: 700px;
      height: 410px;
+     max-height: 70%;
      margin-left: auto;
      margin-right: auto;
      margin-top: 2rem;
@@ -171,7 +173,7 @@ button.order-reverse{
 /*nueva liga*/
 .new-league{
      border: 3px solid rgba(190, 190, 190, 0.3);
-     border-radius: 5px;
+     border-radius: 7px;
      -webkit-box-shadow: -0.5px -0.5px 25px 0.3px #ccc;
      -moz-box-shadow:    -0.5px -0.5px 25px 0.3px #ccc;
      box-shadow:         -0.5px -0.5px 25px 0.3px #ccc;

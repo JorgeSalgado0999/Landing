@@ -22,7 +22,7 @@ window.addEventListener("scroll", changeHeader);
 window.addEventListener('load', function(){
      AOS.init({
           duration: 800, 
-          offset: 100,
+          offset: 80,
      });
 
 

@@ -3,11 +3,11 @@
 /*Tipografia*/
 @font-face{
      font-family: GTAmerica;
-     src: url(./../font/GTAmericaRegular.ttf);
+     src: url(./../fonts/GTAmerica-CompressedRegular.otf);
 }
 @font-face{
      font-family: GTAmericaBold;
-     src: url(./../font/GTAmericaBold.ttf);
+     src: url(./../fonts/GTAmerica-Medium.otf);
 }
 
 /*Estilos generales*/
@@ -42,6 +42,9 @@ h4{
 }
 p{
      font-size: 1.5rem;
+}
+.mayus{
+     text-transform: uppercase;
 }
 .text-align-right{
      text-align: right;

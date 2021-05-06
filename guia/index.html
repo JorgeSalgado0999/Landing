@@ -1,0 +1,631 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Guía para Principiantes WePlay</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c5804eea-c575-449d-94f4-3a5308e91513" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/woodcuts_7.jpg" style="object-position:center 70%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👶🏻</span></div><h1 class="page-title">Guía para Principiantes WePlay</h1></header><div class="page-body"><h1 id="ecc900bf-ac18-43a0-b8b8-cb6eef446982" class="">Guía Principiantes en WePlay</h1><p id="0506e737-0e13-4b1e-a3e8-e01f0ae41221" class="">Bienvenido a la plataforma que explota las emociones del futbol. </p><p id="5fbc011e-3af1-4938-945f-cf4e7717db32" class="">Esta guía es para aquellos que por primera están viviendo la experiencia de WePlay.</p><p id="4281f554-f030-4f76-a797-f5842e399972" class="">Jugar en WePlay es fácil y sencillo, solo tienes que seguir estos 3 consejos y estarás listo para competir por el campeonato.</p><h2 id="653228e9-13ee-4e99-9fd5-fdb4ea6493e5" class="">1. Prepárate para el sorteo</h2><p id="4b8caf2a-cd50-4043-a58a-d0b6f8107130" class="">Primero deberás crear o unirte a una liga. <div class="indented"><h3 id="57982fae-0cfd-49e3-9a7b-3bc93331aa7e" class="">Crear una liga</h3><ol id="bf248dfb-a25c-4c01-bbea-24a7c9139f3a" class="numbered-list" start="1"><li>Para crear una liga deberás iniciar sesión o si no tienes una cuenta regístrate.</li></ol><ol id="99137475-eac5-443a-8a6a-ca59dfc43969" class="numbered-list" start="2"><li>Ve a la pestaña de a &quot;Nueva Liga&quot; que se encuentra arriba a la derecha.</li></ol><ol id="847ea5ae-9f68-471e-aa7d-19a9cac95e9c" class="numbered-list" start="3"><li>Ve al recuadro de &quot;Crear Liga&quot; define el nombre de tu liga y el de tu plantilla.</li></ol><ol id="b5a7b106-8905-40e6-b432-4e4513f29e74" class="numbered-list" start="4"><li>Deberás configurar la liga.<ul id="c291640f-a99f-4206-be0d-0a83232dbb5e" class="bulleted-list"><li>Modo de juego</li></ul><ul id="bb2a32a2-8f3e-44d2-b72c-2b20cae23578" class="bulleted-list"><li>Número de Jugadores </li></ul><ul id="c24b78f6-d0e9-4513-a41c-5f4bb321da9d" class="bulleted-list"><li>Criterio de desempate </li></ul><ul id="b2404362-149c-459a-b196-c14c1e67f9f2" class="bulleted-list"><li>Tipo de eliminatorias</li></ul><ul id="9e58c5be-4de9-4da3-af01-c0cb4c91c19c" class="bulleted-list"><li>Número de jornadas</li></ul></li></ol><ol id="38f45a29-be0f-4b2b-b11a-c77e78631c60" class="numbered-list" start="5"><li>Invita a tus amigos con el código para que se unan.</li></ol><ol id="1bcb1850-c0cb-48d3-bf36-3d15c0add453" class="numbered-list" start="6"><li>Una vez que la liga este completa deberás configurar el Sorteo<ul id="6c76cbfb-c45a-4eec-99c4-903a909be8bd" class="bulleted-list"><li>Día </li></ul><ul id="3ec444c2-f17a-4e20-b5af-87fbeccab54c" class="bulleted-list"><li>Hora </li></ul><ul id="56ab2598-6376-41a9-acaa-f835529738ea" class="bulleted-list"><li>Cantidad de segundos por pick</li></ul></li></ol><h3 id="83079972-cba2-4fe0-95d5-9165bfeee600" class="">Unirte a una liga</h3><ol id="187016c4-d7a3-4966-aa29-184f1477d409" class="numbered-list" start="1"><li>Para crear una liga deberás iniciar sesión o si no tienes una cuenta regístrate.</li></ol><ol id="667a58c2-4148-4426-8283-7375c4990829" class="numbered-list" start="2"><li>Ve a la pestaña de a &quot;Nueva Liga&quot; que se encuentra arriba a la derecha.</li></ol><ol id="3c6ec000-fd85-4063-8ce3-03a027afb2df" class="numbered-list" start="3"><li>El administrador de la liga deberá mandare un código para que puedas unirte a su liga.</li></ol><ol id="fe2958fa-394f-4832-b1bf-f783fb9dec65" class="numbered-list" start="4"><li>Ve al recuadro de &quot;Unirte a una Liga&quot; copia y pega el código y ponle nombre de tu plantilla.</li></ol></div></p><p id="95f4b90d-06f5-4e49-b544-5917558f3f69" class="">
+</p><p id="3fb55f02-3bdf-48ac-85a2-0676fbc09d65" class="">Una vez que estas dentro de la liga el administrador tendrá que definir la fecha y hora del Sorteo. </p><h3 id="0dd1c9b1-ff73-4e08-876c-7222c3d90e31" class="">¿Qué es el Sorteo? </h3><p id="6a621379-a08d-4d69-8340-fbf8ba1d44bb" class=""><div class="indented"><ul id="e622396b-2e6b-47b7-895e-7d76701f826f" class="bulleted-list"><li>El sorteo es donde escoges los equipos que serán parte de tu plantilla.</li></ul><ul id="9179166b-91e4-490e-b751-d1b7dce9eb15" class="bulleted-list"><li>Todos los jugadores de la liga se conectaran en vivo y, por turnos que son asignados al azar, escogerán uno a uno los equipos disponibles para así, ir completando su plantilla.</li></ul><ul id="54a28b10-f92e-4fd4-8e54-68b3ce2be51e" class="bulleted-list"><li>El número de equipos que conformen tu plantilla, dependerá del numero de jugadores y el modo de juego de la liga.</li></ul></div></p><p id="e5bf27e1-1848-4634-9a76-6beb382adfb7" class="">*Los equipos no se podrán repetir entre plantillas de una misma liga.</p><h2 id="7d74459a-990d-43d7-a451-00cf1affd698" class="">2. Alinea tu plantilla</h2><p id="5f9f7b1e-0a68-4f90-8f74-6474f5403072" class=""><div class="indented"><ul id="e26fb8e2-45fb-47ef-9a7a-bbe2bd0b7eba" class="bulleted-list"><li>Después del sorteo todo está listo para que dirijas tu plantilla al campeonato, semana a semana tendrás que alinear a tus equipos y competir contra tu rival. Los podrás alinear en ofensiva, defensiva o dejarlos en el banca.</li></ul><ul id="8cff7b09-7a40-49cd-a76d-a75a7d9b89dc" class="bulleted-list"><li>Los equipos sumarán puntos dependiendo las oportunidades o acciones que generen durante sus partidos, esto quiere decir que los marcadores se estarán actualizando en tiempo real.<p id="822015d5-e71c-4070-a84f-aab162f9a984" class="">El sistema de puntaje funciona así:</p><p id="0b2ccf6e-a24e-4a0b-a421-5714fdc4be37" class=""><div class="indented"><h3 id="aa95dd80-5e47-4484-a02c-b2a33c619ca5" class="">Ofensiva </h3><figure id="e7a26e7a-b640-4818-a125-9276d7569bb1" class="image"><a href="Gui%CC%81a%20para%20Principiantes%20WePlay%20e7a26e7ab6404818a1259276d7569bb1/Puntaje_Ofensiva.png"><img style="width:2554px" src="Gui%CC%81a%20para%20Principiantes%20WePlay%20e7a26e7ab6404818a1259276d7569bb1/Puntaje_Ofensiva.png"/></a></figure><h3 id="63eee771-3c1d-427d-8734-38b8a3e69066" class="">Defensiva</h3><figure id="620db3c8-67a9-42b8-88b6-0bf65e798664" class="image"><a href="Gui%CC%81a%20para%20Principiantes%20WePlay%20e7a26e7ab6404818a1259276d7569bb1/Puntaje_Defensiva.png"><img style="width:2549px" src="Gui%CC%81a%20para%20Principiantes%20WePlay%20e7a26e7ab6404818a1259276d7569bb1/Puntaje_Defensiva.png"/></a></figure><h3 id="788dd8cb-3b5f-4efb-ab91-a9250f76e8ee" class="">Banca</h3><p id="bc5d2320-d058-400c-8f79-089925a714f9" class="">Los Equipos que dejes en la banca no sumarán ni restarán puntos a tu jornada.</p></div></p></li></ul><ul id="2713bd1b-98a1-4af3-a970-e5b4a563e9e7" class="bulleted-list"><li>Al final de la jornada se sumarán los puntos de tus equipos que alineaste para poder determinar quien es el ganador de tu encuentro.</li></ul></div></p><p id="5a168f58-40ef-4bbf-9838-1af824ca9fbe" class="">*El numero de equipos que podrás alinear en ofensiva y defensiva dependerá de la configuración de la liga.</p><p id="76bc0a4e-b3bd-41ba-83db-c30b04ef8b77" class="">*Los partidos que se toman en cuenta son aquellos que ocurren entre viernes y lunes, si un equipo juega fuera de estos días su puntaje será de 0. </p><h2 id="6089eb37-805c-4515-aab9-207e0f9b37ef" class="">3. Mejora tu plantilla.</h2><p id="f5c25765-0af8-4066-a6a4-daebc767d655" class=""><div class="indented"><p id="73a3e31b-2ac3-47ab-8705-805152e05946" class="">Semana a semana tendrás la oportunidad de modificar tu plantilla. Buscando equipos en el mercado podrás encontrar equipos sin dueño y los equipos que pertenecen a otras plantillas.<div class="indented"><p id="4acc22fa-9da0-41fd-85a5-1189badb6a30" class=""><div class="indented"><h3 id="4a257fca-a939-48d5-b40e-46d4c2234e87" class="">¿Qué es el Mercado?</h3><ul id="1cbb0d35-805a-48ce-b373-f3541ebc386e" class="bulleted-list"><li>El mercado es el lugar donde encontraras a los todos los equipos que están disponibles en tu liga, ya sea que pertenezcan a otra plantilla o equipos sin fichar (Agentes Libres)</li></ul><ul id="7a46212f-517b-4ed6-8bd9-d381740e3744" class="bulleted-list"><li>El mercado puede estar abierto o cerrado. <h3 id="9bc7f8f9-9493-467a-a00e-7105a0da830e" class="">Abierto (Miércoles a Lunes)</h3><p id="480a6030-b117-4023-9b0c-bddd393b6797" class="">Cuando el mercado esta abierto podrás hacer transferencias y fichajes al instante, siempre y cuando uno de los equipos que quieras intercambiar no haya empezado de esa semana. </p><p id="72a4634b-cfcc-499c-a65e-c67885548789" class="">Si uno de los equipos que quieres intercambiar ya jugo o esta jugando su partido de la semana podrás agendar el intercambio para que se ejecute cuando el mercado vuelva a estar abierto.</p><h3 id="98ef029b-1c18-4c77-96e0-64e6ed1d0185" class="">Cerrado (Martes)</h3><p id="948d3d4e-2a0a-4c78-8c81-af23240ba638" class="">Cuando el mercado este cerrado significa que todo intercambio de jugadores será agendado para que se ejecute cuando el mercado esta abierto.</p><p id="c36fd9ba-6e69-440b-828e-d7235d4a499a" class="">El cierre del mercado da la oportunidad a los dueños de las plantillas de analizar el mercado una vez finalizada la jornada. 
+</p></li></ul></div></p></div></p><p id="0f60c1e4-1b20-4aab-857a-bb9ff244ff8c" class="">*Si 2 o mas jugadores quieren fichar a un mismo equipo, el jugador que tenga peor posición en la tabla tendrá prioridad en el fichaje.<div class="indented"><p id="9fec62f1-6348-4ca6-a8d5-22790fd1c59e" class=""><div class="indented"><ul id="a0e14613-3fc6-4fc8-8150-63147a87c93f" class="bulleted-list"><li>Hay 2 formas de mejorar tu plantilla en el mercado;<ol id="b65fe83f-e83e-41aa-af80-dc7c95e08cd4" class="numbered-list" start="1"><li>Transferencias</li></ol><ol id="d1ddf723-ae68-46c6-b7a9-bd1d2972c6fd" class="numbered-list" start="2"><li>Fichajes <h3 id="ea4e77e6-d360-415d-9361-2b3f07600dd7" class="">Transferencias </h3><p id="8026ba37-f3f8-4549-96ae-379a9ffcb75d" class="">Podrás negociar con otros jugadores para intercambiar equipos con ellos. </p><h3 id="a4dbf85a-f256-4e6c-bd66-106393f67478" class="">Fichajes </h3><p id="838ac5b5-5342-4ea8-8da4-0fe0b70c9c33" class="">En el mercado podrás encontrar los equipos que estén libres e intercambiar por alguno de tu plantilla.</p><p id="83867ac8-dcb4-4fa7-8add-2680be16536b" class="">
+</p></li></ol></li></ul></div></p></div></p><p id="62bff46f-803f-4504-9193-7627d1f5b08d" class="">¿Fácil No?, Que esperas para unirte a WePlay y explotar las emociones del deporte mas popular en el mundo. </p></div></p><h2 id="39307b52-8982-40a1-ac07-951ebb674097" class="">¡Únete ya, para vivir la experiencia WePlay!</h2><p id="ebd53d69-4e46-4d92-a13f-d0e2190e5852" class="">
+</p></div></article></body></html>
